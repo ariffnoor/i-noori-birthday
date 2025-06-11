@@ -1,58 +1,111 @@
-Its your Husbands wish HAPPY BIRTHDAY NOORI🐣MAHNOOR ARIF NOUMAN
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Meri Noori ❤️</title>
+  <title>Welcome My Noori 💖</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #ffe6f0, #fff5f8);
+      background: linear-gradient(to right, #fff0f5, #ffe6f0);
       font-family: 'Segoe UI', sans-serif;
       text-align: center;
+      margin: 0;
+      padding: 0;
     }
     h1 {
-      font-size: 3em;
-      color: #ff0066;
+      color: #ff3399;
       margin-top: 50px;
-    }
-    p {
-      font-size: 1.2em;
-      color: #333;
-    }
-    .balloons {
-      animation: float 6s ease-in-out infinite;
-      width: 100px;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
+      font-size: 3em;
     }
     .btn {
-      margin-top: 40px;
+      margin-top: 30px;
       padding: 15px 25px;
-      font-size: 1em;
       background-color: #ff66b2;
       color: white;
       border: none;
-      border-radius: 8px;
-      cursor: pointer;
+      border-radius: 10px;
       text-decoration: none;
+      font-size: 1.2em;
+    }
+    #timer-container h2 {
+      font-size: 1.5em;
+      color: #cc0066;
+      margin-top: 30px;
+    }
+    #countdown {
+      font-size: 2em;
+      margin-top: 10px;
+      color: #99004d;
+    }
+    .paper {
+      width: 10px;
+      height: 10px;
+      background: #ffb3da;
+      position: absolute;
+      top: -10px;
+      animation: fall 3s ease-in-out forwards;
+      border-radius: 50%;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
-  <img src="https://i.imgur.com/G9bDaPH.png" alt="balloons" class="balloons">
-  <h1>🎉 Happy Birthday Meri Noori 🎉</h1>
-  <p>Ya Allah, meri Noori ko hamesha khush rakhna (Mere sath 😛🤭)... 🤍<br>Jise har din main duaon mein yaad rakhta hoon.</p>
-  <a href="/cake" class="btn">🎂 See Cake</a>
-  <br><br>
-  <a href="/letter" class="btn">📖 Read My Letter</a>
+  <h1>Assalamu Alaikum Meri Jaan Noori 💗</h1>
+<p>Ya Allah, meri Noori ko hamesha khush rakhna (Mere sath 😛🤭)... 🤍<br>Jise har din main duaon mein yaad rakhta hoon.</p>
+  
+  <div id="timer-container">
+    <h2>⏳ Countdown to Surprise 🎁</h2>
+    <div id="countdown">Loading...</div>
+  </div>
+
+  <div id="burst-message" style="display:none;">
+    <h1 style="color: #ff3399;">🎉 Surprise for Noori! 🎉</h1>
+    <a href="/cake" class="btn">🎂 Go to Cake</a>
+  </div>
+
+  <!-- Background Wedding Nasheed -->
+  <audio autoplay loop>
+    <source src="https://www.islamcan.com/audio/nasheeds/a_islamic_wedding_song.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const countdown = document.getElementById("countdown");
+    const burstMessage = document.getElementById("burst-message");
+    const timerContainer = document.getElementById("timer-container");
+
+    // Set timer (change to 60 for 1 min or longer)
+    const targetTime = new Date();
+    targetTime.setSeconds(targetTime.getSeconds() + 20); // 20 seconds
+
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetTime - now;
+
+      if (distance <= 0) {
+        clearInterval(interval);
+        timerContainer.style.display = "none";
+        burstMessage.style.display = "block";
+        createBurst();
+      } else {
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        countdown.innerHTML = `🎉 ${seconds} seconds left!`;
+      }
+    }, 1000);
+
+    function createBurst() {
+      for (let i = 0; i < 50; i++) {
+        const paper = document.createElement("div");
+        paper.className = "paper";
+        document.body.appendChild(paper);
+        paper.style.left = Math.random() * 100 + "vw";
+        paper.style.animationDelay = Math.random() * 2 + "s";
+      }
+    }
+  </script>
 </body>
 </html>
-<audio autoplay loop>
-  <source src="https://github.com/aarifresources/audio-hosting/raw/main/baraka_allahu_lakuma.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
