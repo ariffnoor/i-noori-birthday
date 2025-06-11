@@ -10,29 +10,36 @@
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
+      overflow-x: hidden;
     }
+
+    h1 {
+      color: #ff3399;
+      font-size: 2.5em;
+      margin-top: 30px;
+    }
+
+    .name {
+      font-size: 1.5em;
+      margin-top: 20px;
+      color: #99004d;
+    }
+
     .cake {
-      margin-top: 50px;
+      margin-top: 30px;
       position: relative;
       width: 250px;
       margin-left: auto;
       margin-right: auto;
+      z-index: 2;
     }
+
     .cake img {
       width: 100%;
       border-radius: 10px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.2);
     }
-    h1 {
-      color: #ff3399;
-      font-size: 2.5em;
-      margin-top: 20px;
-    }
-    .name {
-      font-size: 1.5em;
-      margin-top: 15px;
-      color: #99004d;
-    }
+
     .btn {
       margin-top: 40px;
       padding: 12px 20px;
@@ -42,16 +49,69 @@
       border-radius: 8px;
       text-decoration: none;
       font-size: 1em;
+      z-index: 2;
+      position: relative;
+    }
+
+    /* Floating hearts */
+    .floating {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .float {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: floatUp 8s linear infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>🎂 Special Cake for You 🎂</h1>
- <div class="cake">
-  <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Cake Gif">
-</div>
+
+  <!-- Floating hearts -->
+  <div class="floating">
+    <div class="float" style="left:10%; background-image:url('https://cdn-icons-png.flaticon.com/512/833/833472.png'); animation-delay: 0s;"></div>
+    <div class="float" style="left:25%; background-image:url('https://cdn-icons-png.flaticon.com/512/833/833472.png'); animation-delay: 2s;"></div>
+    <div class="float" style="left:40%; background-image:url('https://cdn-icons-png.flaticon.com/512/833/833472.png'); animation-delay: 1s;"></div>
+    <div class="float" style="left:55%; background-image:url('https://cdn-icons-png.flaticon.com/512/833/833472.png'); animation-delay: 3s;"></div>
+    <div class="float" style="left:70%; background-image:url('https://cdn-icons-png.flaticon.com/512/833/833472.png'); animation-delay: 1.5s;"></div>
+    <div class="float" style="left:85%; background-image:url('https://cdn-icons-png.flaticon.com/512/833/833472.png'); animation-delay: 2.5s;"></div>
+  </div>
+
+  <!-- Background nasheed -->
+  <audio autoplay loop>
+    <source src="https://ia801009.us.archive.org/30/items/nasheed-wedding/Nasheed%20Wedding.mp3" type="audio/mpeg">
+  </audio>
+
+  <h1>🎂 Special Cake for You Meri Jaan Mahnoor 🎂</h1>
+
+  <div class="cake">
+    <img src="https://i.imgur.com/O5bZFxO.gif" alt="Birthday Cake">
+  </div>
+
   <div class="name">Meri Noori 💖</div>
 
   <a href="/letter" class="btn">📖 Next: A Personal Letter</a>
+
 </body>
 </html>
